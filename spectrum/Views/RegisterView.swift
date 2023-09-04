@@ -12,8 +12,7 @@ struct RegisterView: View {
     
     @StateObject var viewModel = RegisterController()
     
-    
-    
+    let schoolOptions = ["SLU", "UB"]
     
     
     var body: some View {
@@ -40,11 +39,12 @@ struct RegisterView: View {
                 .autocapitalization(.none)
                 .autocorrectionDisabled()
             
-            TextField("School", text: $viewModel.schoolName)
-                .textFieldStyle(DefaultTextFieldStyle())
-                .autocapitalization(.none)
-                .autocorrectionDisabled()
-            
+            Picker("School", selection: $viewModel.schoolName) {
+                            ForEach(schoolOptions, id: \.self) { school in
+                                Text(school).tag(school)
+                            }
+                        }
+                        .pickerStyle(MenuPickerStyle())
             
             TextField("Email", text: $viewModel.email)
                 .textFieldStyle(DefaultTextFieldStyle())
