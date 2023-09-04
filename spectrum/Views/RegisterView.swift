@@ -40,6 +40,12 @@ struct RegisterView: View {
                 .autocapitalization(.none)
                 .autocorrectionDisabled()
             
+            TextField("School", text: $viewModel.schoolName)
+                .textFieldStyle(DefaultTextFieldStyle())
+                .autocapitalization(.none)
+                .autocorrectionDisabled()
+            
+            
             TextField("Email", text: $viewModel.email)
                 .textFieldStyle(DefaultTextFieldStyle())
                 .autocapitalization(.none)
