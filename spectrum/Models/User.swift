@@ -8,5 +8,6 @@ struct User: Codable {
     let lastname: String
     let username: String
     let email: String
+    let schoolname: String
 
 }
