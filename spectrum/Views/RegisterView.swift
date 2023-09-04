@@ -26,6 +26,15 @@ struct RegisterView: View {
                //Registration form
         Form{
             
+            Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
+                            .onTapGesture {
+                                // Implement logic to allow users to select a profile picture later
+                            }
+            
             TextField("First Name", text: $viewModel.firstName)
                 .textFieldStyle(DefaultTextFieldStyle())
                 .autocorrectionDisabled()
