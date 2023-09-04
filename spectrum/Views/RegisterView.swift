@@ -25,15 +25,20 @@ struct RegisterView: View {
         
                //Registration form
         Form{
-            
-            Image(systemName: "person.circle.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 100, height: 100)
-                            .clipShape(Circle())
-                            .onTapGesture {
-                                // Implement logic to allow users to select a profile picture later
-                            }
+            HStack {
+                Spacer()
+                
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 100, height: 100)
+                    .clipShape(Circle())
+                    .onTapGesture {
+                        // Implement logic to allow users to select a profile picture later
+                    }
+                
+                Spacer()
+            }            
             
             TextField("First Name", text: $viewModel.firstName)
                 .textFieldStyle(DefaultTextFieldStyle())
@@ -70,25 +75,20 @@ struct RegisterView: View {
             
         }
             
-            Button{
-                viewModel.register()
-            } label: {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(Color.yellow)
-                    
-                    Text("Create Account")
-                        .foregroundColor(Color.white)
-                        .bold()
-                }
-                
-            }
-           
+        Button {
+            viewModel.register()
+        } label: {
+            Text("Create Account")
+                .foregroundColor(Color.white)
+                .bold()
+                .padding(10) // Adjust the padding as needed to make the button smaller
+                .background(Color.yellow)
+                .cornerRadius(10)
         }
+        .padding(.top, 10)
+        .padding(.horizontal, 20)
         
-        
-        
-        
+    }
         
     }
 
