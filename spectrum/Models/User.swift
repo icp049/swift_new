@@ -9,5 +9,6 @@ struct User: Codable {
     let username: String
     let email: String
     let schoolname: String
+    let displayphoto: String
 
 }
