@@ -19,7 +19,7 @@ class RegisterController: ObservableObject{
     @Published var firstName = ""
     @Published var lastName = ""
     @Published var schoolName = ""
-   
+    @Published var displayPhoto = ""
     
 
     init() {}
@@ -47,7 +47,8 @@ class RegisterController: ObservableObject{
                 lastname: lastName,     // Use lowercase "lastname" here
                 username: displayName,  // Use lowercase "username" here
                 email: email,
-                schoolname: schoolName
+                schoolname: schoolName,
+                displayphoto: displayPhoto
             
             )
         

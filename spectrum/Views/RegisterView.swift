@@ -6,11 +6,19 @@
 //
 
 import SwiftUI
+import UIKit
+
 
 struct RegisterView: View {
     //attributes
     
+    
+    
+    
+    
     @StateObject var viewModel = RegisterController()
+    
+    
     
     let schoolOptions = ["SLU", "UB"]
     
@@ -38,7 +46,7 @@ struct RegisterView: View {
                     }
                 
                 Spacer()
-            }            
+            }
             
             TextField("First Name", text: $viewModel.firstName)
                 .textFieldStyle(DefaultTextFieldStyle())
