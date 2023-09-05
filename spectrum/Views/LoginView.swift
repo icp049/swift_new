@@ -1,15 +1,88 @@
 //
 //  LoginView.swift
-//  spectrum
+//  Dump
 //
-//  Created by Ian Pedeglorio on 2023-09-05.
+//  Created by Ian Pedeglorio on 2023-06-08.
 //
 
 import SwiftUI
 
 struct LoginView: View {
+    
+    @State var viewModel = LoginController()
+   
+    
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            VStack{
+                //header
+                Text("Dump")
+                    .foregroundColor(Color.blue)
+                    .bold()
+                    .font(.system(size: 60))
+                    .padding(.top,60)
+                
+                
+               
+             
+                
+                
+                
+                
+                
+                //login form
+                Form{
+                    
+                    //error message
+                    if  !viewModel.errorMessage.isEmpty {
+                        Text(viewModel.errorMessage)
+                            .foregroundColor(Color.red)
+                    }
+                    
+                    
+                    TextField("Email Address", text: $viewModel.email)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocorrectionDisabled()
+                        .autocapitalization(.none)
+                    SecureField("Password", text: $viewModel.password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    Button{
+                        //action for login
+                        
+                        viewModel.login()
+                        
+                    } label: {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(Color.yellow)
+                            
+                            Text("Log in")
+                                .foregroundColor(Color.white)
+                                .bold()
+                        }
+                    }
+                    
+                }
+                
+                
+                
+                
+                
+                //Create account
+                VStack{
+                    Text("New around here?")
+                    NavigationLink("Create an Account", destination: RegisterView())
+                        //show registration
+                    
+                }
+                .padding(.bottom,50)
+                Spacer()
+            }
+            
+        }
     }
 }
 
@@ -18,3 +91,4 @@ struct LoginView_Previews: PreviewProvider {
         LoginView()
     }
 }
+

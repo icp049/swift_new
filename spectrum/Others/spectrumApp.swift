@@ -16,7 +16,7 @@ struct spectrumApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RegisterView()
+            MainView()
         }
     }
 }
